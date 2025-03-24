@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>❤❤❤ Matchmaker for the Web ❤❤❤</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>❤❤❤ Matchmaker for the Web ❤❤❤</h1>
+    <p>Find out if you're a match made in heaven!</p>
+  </header>
+
+  <main>
+    <section id="instructions">
+      <h2>How It Works</h2>
+      <p>Answer the following 5 questions on a scale of 1 (Strongly Disagree) to 5 (Strongly Agree). Your answers will be compared to your "true love's" answers, and a compatibility score will be calculated. Let's see if you're a match!</p>
+    </section>
+
+    <section id="questions">
+      <h2>Questions</h2>
+      <form id="matchmakerForm">
+        <!-- Questions will be dynamically added here by JavaScript -->
+      </form>
+      <button id="calculateButton">Calculate Compatibility</button>
+    </section>
+
+    <section id="results">
+      <h2>Results</h2>
+      <p id="compatibilityScore"></p>
+      <p id="closingRemark"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Matchmaker for the Web</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
