@@ -1,58 +1,31 @@
 // Constants
-const QUESTIONS = [
-  "I love spending time outdoors.",
-  "I enjoy trying new foods.",
-  "I believe in love at first sight.",
-  "I value honesty above all else.",
-  "I enjoy quiet evenings at home."
-];
-
-const DESIRED_ANSWERS = [5, 4, 3, 2, 1]; // True love's answers
+const DESIRED_ANSWERS = ["agree", "disagree", "agree"]; // True love's answers
 const THRESHOLDS = {
   trueLove: 90,
   friends: 70,
   runAway: 50
 };
 
-// Initialize the form with questions
-const form = document.getElementById("matchmakerForm");
-QUESTIONS.forEach((question, index) => {
-  const div = document.createElement("div");
-  const label = document.createElement("label");
-  label.textContent = `${index + 1}. ${question}`;
-  const input = document.createElement("input");
-  input.type = "number";
-  input.min = 1;
-  input.max = 5;
-  input.required = true;
-  input.name = `question${index + 1}`;
-  div.appendChild(label);
-  div.appendChild(input);
-  form.appendChild(div);
-});
-
-// Validate user input
-function validateInput(value) {
-  return value >= 1 && value <= 5;
-}
-
 // Calculate compatibility score
 function calculateCompatibility() {
   let totalScore = 0;
-  QUESTIONS.forEach((_, index) => {
-    const input = document.querySelector(`input[name="question${index + 1}"]`);
-    const userAnswer = parseInt(input.value, 10);
-    if (!validateInput(userAnswer)) {
-      alert(`Please enter a valid number (1-5) for question ${index + 1}.`);
-      input.focus();
+  const questions = document.querySelectorAll(".question select");
+
+  questions.forEach((select, index) => {
+    const userAnswer = select.value;
+    if (!userAnswer) {
+      alert(`Please select an answer for question ${index + 1}.`);
+      select.focus();
       return;
     }
-    const compatibilityScore = Math.abs(userAnswer - DESIRED_ANSWERS[index]);
-    totalScore += compatibilityScore;
+
+    // Compare user's answer with true love's answer
+    if (userAnswer === DESIRED_ANSWERS[index]) {
+      totalScore += 33.33; // Each question contributes 33.33% to the total score
+    }
   });
 
-  const finalScore = 100 - totalScore;
-  displayResults(finalScore);
+  displayResults(totalScore);
 }
 
 // Display results
@@ -60,7 +33,7 @@ function displayResults(score) {
   const compatibilityScore = document.getElementById("compatibilityScore");
   const closingRemark = document.getElementById("closingRemark");
 
-  compatibilityScore.textContent = `Your Compatibility Score: ${score}%`;
+  compatibilityScore.textContent = `Your Compatibility Score: ${score.toFixed(2)}%`;
 
   if (score >= THRESHOLDS.trueLove) {
     closingRemark.textContent = "❤❤❤ True Love! You're a perfect match! ❤❤❤";
