@@ -27,20 +27,22 @@ section {
   margin-bottom: 30px;
 }
 
-form {
-  display: inline-block;
-  text-align: left;
+.question {
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
-  margin: 10px 0 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-input[type="number"] {
-  width: 50px;
+select {
+  width: 200px;
   padding: 5px;
-  margin-bottom: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {
@@ -51,6 +53,7 @@ button {
   font-size: 1em;
   cursor: pointer;
   margin-top: 20px;
+  border-radius: 5px;
 }
 
 button:hover {
