@@ -15,13 +15,41 @@
   <main>
     <section id="instructions">
       <h2>How It Works</h2>
-      <p>Answer the following 5 questions on a scale of 1 (Strongly Disagree) to 5 (Strongly Agree). Your answers will be compared to your "true love's" answers, and a compatibility score will be calculated. Let's see if you're a match!</p>
+      <p>Answer the following 3 questions by selecting <strong>Agree</strong> or <strong>Disagree</strong> from the dropdown menus. Your answers will be compared to your "true love's" answers, and a compatibility score will be calculated. Let's see if you're a match!</p>
     </section>
 
     <section id="questions">
       <h2>Questions</h2>
       <form id="matchmakerForm">
-        <!-- Questions will be dynamically added here by JavaScript -->
+        <!-- Question 1 -->
+        <div class="question">
+          <label for="question1">1: Looks over personality</label>
+          <select id="question1" name="question1" required>
+            <option value="" disabled selected>Select your answer</option>
+            <option value="agree">Agree</option>
+            <option value="disagree">Disagree</option>
+          </select>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+          <label for="question2">2: 80's over 2000s music</label>
+          <select id="question2" name="question2" required>
+            <option value="" disabled selected>Select your answer</option>
+            <option value="agree">Agree</option>
+            <option value="disagree">Disagree</option>
+          </select>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+          <label for="question3">3: Summer over winter</label>
+          <select id="question3" name="question3" required>
+            <option value="" disabled selected>Select your answer</option>
+            <option value="agree">Agree</option>
+            <option value="disagree">Disagree</option>
+          </select>
+        </div>
       </form>
       <button id="calculateButton">Calculate Compatibility</button>
     </section>
